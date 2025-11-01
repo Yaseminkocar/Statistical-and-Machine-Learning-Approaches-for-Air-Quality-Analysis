@@ -2,7 +2,7 @@ import pandas as pd
 from matplotlib import pyplot as plt
 
 
-file_name = "/Users/yasemin/Desktop/hi1_2025_09_eylul 2.xlsx"
+file_name = "/Users/yasemin/Desktop/hi1_2025_09_eylul.xlsx"
 df = pd.read_excel(file_name)
 
 

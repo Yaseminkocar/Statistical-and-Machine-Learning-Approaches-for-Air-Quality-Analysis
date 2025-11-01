@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-df = pd.read_excel('/Users/yasemin/Desktop/hi1_2025_09_eylul 2.xlsx', index_col='Kayıt Tarihi')
+df = pd.read_excel('/Users/yasemin/Desktop/hi1_2025_09_eylul.xlsx', index_col='Kayıt Tarihi')
 
 numerical_cols = df.select_dtypes(include=['float64', 'int64']).columns
 df_num = df[numerical_cols]

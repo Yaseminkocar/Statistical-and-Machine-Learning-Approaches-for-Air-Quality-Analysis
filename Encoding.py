@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_excel("/Users/yasemin/Desktop/hi1_2025_09_eylul 2.xlsx")
+df = pd.read_excel("/Users/yasemin/Desktop/hi1_2025_09_eylul.xlsx")
 
 categorical_cols = df.select_dtypes(include=["object"]).columns
 
