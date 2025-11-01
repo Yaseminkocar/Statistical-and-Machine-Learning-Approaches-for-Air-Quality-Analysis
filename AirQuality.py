@@ -7,7 +7,6 @@ def pick_col(df, candidates):
             return c
     return None
 
-# Load Excel file
 
 df = pd.read_excel("hi1_2025_09_eylul.xlsx")
 df.columns = df.columns.str.strip()
@@ -17,7 +16,6 @@ for c in df.columns:
     print(" -", repr(c))
 
 
-# Column name matching
 
 col_time = pick_col(df, ["Kayıt Tarihi", "Kayit Tarihi", "KayıtTarihi", "Tarih", "Date", "Timestamp"])
 col_pm1  = pick_col(df, ["Pm1", "PM1"])
@@ -39,13 +37,11 @@ print(" VOC    :", col_voc)
 print(" device :", col_dev)
 
 
-# Convert timestamp
 
 if col_time is not None:
     df[col_time] = pd.to_datetime(df[col_time], errors="coerce")
 
 
-# BOX PLOT – PM1 / PM2.5 / PM10
 
 pm_cols = [c for c in [col_pm1, col_pm25, col_pm10] if c is not None]
 if pm_cols:
@@ -59,7 +55,6 @@ else:
     print("!! Warning: PM columns not found; box plot skipped.")
 
 
-# HISTOGRAM – Temperature
 
 if col_temp is not None:
     plt.figure(figsize=(6,4))
@@ -72,8 +67,6 @@ if col_temp is not None:
 else:
     print("!! Warning: Temperature column not found; histogram skipped.")
 
-
-# LINE PLOT – PM2.5 Over Time
 
 if (col_time is not None) and (col_pm25 is not None):
     plt.figure(figsize=(9,4))
@@ -89,8 +82,6 @@ else:
     print("!! Warning: Time or PM2.5 column missing; line plot skipped.")
 
 
-# SCATTER – Temperature vs PM2.5
-
 if (col_temp is not None) and (col_pm25 is not None):
     plt.figure(figsize=(6,4))
     plt.scatter(df[col_temp], df[col_pm25], alpha=0.6)
@@ -102,8 +93,6 @@ if (col_temp is not None) and (col_pm25 is not None):
 else:
     print("!! Warning: Temperature or PM2.5 column missing; scatter plot skipped.")
 
-
-# BAR – VOC or Device Distribution
 
 if col_voc is not None and df[col_voc].notna().any():
     plt.figure(figsize=(6,4))
@@ -125,7 +114,6 @@ else:
     print("!! Warning: Neither VOC nor device column found; bar chart skipped.")
 
 
-# Summary
 
 print("\n The following visualizations were saved (if available):")
 print(" - boxplots_pm.png")
