@@ -3,12 +3,16 @@ import os
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
+
 import seaborn as sns
 import numpy as np
+
+
+
 from scipy.stats import ks_2samp
 
 
-df = pd.read_excel(r"C:\Users\90543\Downloads\CE477-Project-main\CE477-Project-main\hi1_2025_09_eylul.xlsx")
+df = pd.read_excel(r"C:\Users\burak\CE477-Project\hi1_2025_09_eylul.xlsx")
 
 ##this is to keep track of the augmented data. boolean. if augmented =1, not=0
 df["Augmented"] = 0

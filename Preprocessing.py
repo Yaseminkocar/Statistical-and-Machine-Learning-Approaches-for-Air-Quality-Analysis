@@ -41,6 +41,7 @@ def make_categorical_modes(df, out_dir):
             "Unique": int(df[c].nunique(dropna=True))
         })
     out = pd.DataFrame(rows)
+
     out_path = os.path.join(out_dir, "categorical_modes.csv")
     out.to_csv(out_path, index=False)
     return out_path, out
