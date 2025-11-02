@@ -2,7 +2,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
-
 base_dir = os.path.dirname(os.path.abspath(__file__))
 
 file_path = os.path.join(base_dir, "hi1_2025_09_eylul.xlsx")

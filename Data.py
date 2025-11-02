@@ -4,7 +4,6 @@ import os
 
 base_dir = os.path.dirname(os.path.abspath(__file__))
 
-
 input_path = os.path.join(base_dir, "hi1_2025_09_eylul.xlsx")
 
 df = pd.read_excel(input_path)
