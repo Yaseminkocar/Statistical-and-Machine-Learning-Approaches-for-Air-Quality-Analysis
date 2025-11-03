@@ -74,4 +74,4 @@ axes[0, 0].set_ylabel("Count", fontsize=9)
 axes[1, 0].set_ylabel("Count", fontsize=9)
 
 plt.tight_layout()
-plt.savefig("normalization_before_after.png", dpi=300)
+plt.savefig("normalization_before_after.pdf", dpi=300)
