@@ -13,5 +13,5 @@ df["Temp_cat"].value_counts().sort_index().plot(kind='bar', ax=axes[0], title='T
 df["Humid_cat"].value_counts().sort_index().plot(kind='bar', ax=axes[1], title='Humidity')
 df["PM25_cat"].value_counts().sort_index().plot(kind='bar', ax=axes[2], title='PM2.5')
 plt.tight_layout()
-plt.savefig("discretization_hist.png", dpi=300)
+plt.savefig("discretization_hist.pdf", dpi=300)
 plt.show()

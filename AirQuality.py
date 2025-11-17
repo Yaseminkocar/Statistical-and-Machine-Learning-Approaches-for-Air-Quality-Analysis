@@ -61,19 +61,37 @@ if col_temp is not None:
 else:
     print("!! Warning: Temperature column not found; histogram skipped.")
 
+if (col_time is not None) and (col_pm25 is not None) and (col_temp is not None):
 
-if (col_time is not None) and (col_pm25 is not None):
-    plt.figure(figsize=(9, 4))
-    plt.plot(df[col_time], df[col_pm25])
-    plt.title("PM2.5 Levels Over Time")
-    plt.xlabel("Timestamp")
-    plt.ylabel("PM2.5 (µg/m³)")
-    plt.xticks(rotation=45)
-    plt.tight_layout()
-    plt.savefig("lineplot_pm25.pdf", format='pdf', bbox_inches="tight")
-    plt.close()
+    df["hour_of_day"] = df[col_time].dt.hour
+
+
+    hourly = (
+        df.groupby("hour_of_day")
+          .agg(pm25=(col_pm25, "mean"),
+               temp=(col_temp, "mean"))
+          .reset_index()
+    )
+
+    fig, ax1 = plt.subplots(figsize=(9, 4))
+
+    ax1.plot(hourly["hour_of_day"], hourly["pm25"], marker="o")
+    ax1.set_xlabel("Hour of day")
+    ax1.set_ylabel("PM2.5 (µg/m³)")
+    ax1.set_xticks(range(24))
+    ax1.set_xticklabels([f"{h:02d}:00" for h in range(24)], rotation=45)
+    ax1.grid(True, axis="y", alpha=0.3)
+
+    ax2 = ax1.twinx()
+    ax2.plot(hourly["hour_of_day"], hourly["temp"], marker="s", linestyle="--")
+    ax2.set_ylabel("Temperature (°C)")
+
+    plt.title("Average hourly PM2.5 concentration and temperature")
+    fig.tight_layout()
+    fig.savefig("lineplot_pm25.pdf", format="pdf", bbox_inches="tight")
+    plt.close(fig)
 else:
-    print("!! Warning: Time or PM2.5 column missing; line plot skipped.")
+    print("!! Warning: need time, PM2.5 and temperature columns for hourly plot.")
 
 
 if (col_temp is not None) and (col_pm25 is not None):
