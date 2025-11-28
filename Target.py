@@ -90,7 +90,6 @@ plt.tight_layout()
 plt.savefig("plot_rf_feature_importances.pdf")
 plt.show()
 
-
 plt.figure(figsize=(12,5))
 
 plt.subplot(1,2,1)
