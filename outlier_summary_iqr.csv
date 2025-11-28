@@ -1,0 +1,3 @@
+Attribute,Q1,Q3,IQR,Lower Fence,Upper Fence,Outlier Count,N
+Pm10,48.0,175.0,127.0,-142.5,365.5,0,2404
+Voc,0.0,0.0,0.0,0.0,0.0,96,2404
