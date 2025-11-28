@@ -121,5 +121,3 @@ plt.title("Error Distribution Comparison")
 plt.legend()
 plt.savefig("plot_error_distribution.pdf")
 plt.show()
-
-
