@@ -91,7 +91,6 @@ plt.savefig("plot_rf_feature_importances.pdf")
 plt.show()
 
 plt.figure(figsize=(12,5))
-
 plt.subplot(1,2,1)
 plt.scatter(y_test, y_pred_lr, alpha=0.5)
 plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()])
