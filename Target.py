@@ -122,4 +122,11 @@ plt.legend()
 plt.savefig("plot_error_distribution.pdf")
 plt.show()
 
+print(f"Linear Regression  | RMSE = {rmse_lr:.3f} | MAPE = {mape_lr:.2f}%")
+print(f"Random Forest      | RMSE = {rmse_rf:.3f} | MAPE = {mape_rf:.2f}%")
+
+print(f"Linear Regression & {rmse_lr:.3f} & {mape_lr:.2f} \\\\")
+print(f"Random Forest & {rmse_rf:.3f} & {mape_rf:.2f} \\\\")
+
+
 
