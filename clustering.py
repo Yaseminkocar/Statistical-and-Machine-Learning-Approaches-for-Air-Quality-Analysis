@@ -17,7 +17,6 @@ def save_plot(filename):
 
 df = pd.read_excel("hi1_2025_09_eylul.xlsx")
 
-
 numeric_cols = [
     "Pm1", "Pm2.5", "Pm10",
     "CO2", "CH2O", "O3", "Voc",
