@@ -45,6 +45,7 @@ centers_scaled = kmeans.cluster_centers_
 
 centers_original = scaler.inverse_transform(centers_scaled)
 centers_df = pd.DataFrame(centers_original, columns=numeric_cols)
+pd.set_option("display.max_columns", None)
 print(centers_df.round(2))
 
 
